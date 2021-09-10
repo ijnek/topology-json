@@ -1,0 +1,109 @@
+{
+  "nodes": [
+      {
+        "node_name": "node_1",
+        "publishers": [
+              {"topic_name": "topic_1", "msg_type": "stamped9_float32", "period_ms": 10, "msg_pass_by":"shared_ptr"},
+              {"topic_name": "topic_2", "msg_type": "stamped4_int32", "period_ms": 10, "msg_pass_by":"shared_ptr"},
+              {"topic_name": "topic_3", "msg_type": "stamped4_int32", "period_ms": 10, "msg_pass_by":"shared_ptr"},
+              {"topic_name": "topic_4", "msg_type": "stamped_int64", "period_ms": 10, "msg_pass_by":"shared_ptr"}
+            ]
+      },
+
+      {
+        "node_name": "node_2",
+        "subscribers":[
+            {"topic_name":"topic_1", "msg_type":"stamped9_float32"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_5", "msg_type": "stamped4_float32", "period_ms": 10, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_3",
+        "subscribers":[
+            {"topic_name":"topic_2", "msg_type":"stamped4_int32"},
+            {"topic_name":"topic_5", "msg_type":"stamped4_float32"},
+            {"topic_name":"topic_3", "msg_type":"stamped4_int32"},
+            {"topic_name":"topic_4", "msg_type":"stamped_int64"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_6", "msg_type": "stamped3_float32", "period_ms": 10, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_4",
+        "subscribers":[
+            {"topic_name":"topic_6", "msg_type":"stamped3_float32"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_7", "msg_type": "stamped12_float32", "period_ms": 100, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_5",
+        "subscribers":[
+            {"topic_name":"topic_7", "msg_type":"stamped12_float32"},
+            {"topic_name":"topic_4", "msg_type":"stamped_int64"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_8", "msg_type": "stamped_vector", "msg_size": 10000, "period_ms": 100, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_6",
+        "subscribers":[
+            {"topic_name":"topic_8", "msg_type":"stamped_vector"},
+            {"topic_name":"topic_4", "msg_type":"stamped_int64"},
+            {"topic_name":"topic_9", "msg_type":"stamped_int64"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_10", "msg_type": "stamped_vector", "msg_size": 100, "period_ms": 500, "msg_pass_by":"shared_ptr"},
+            {"topic_name": "topic_11", "msg_type": "stamped4_int32", "period_ms": 100, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_7",
+        "subscribers":[
+            {"topic_name":"topic_10", "msg_type":"stamped_vector"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_12", "msg_type": "stamped_vector", "msg_size": 50, "period_ms": 100, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_8",
+        "subscribers":[
+            {"topic_name":"topic_12", "msg_type":"stamped_vector"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_9", "msg_type": "stamped_int64", "period_ms": 500, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_9",
+        "subscribers":[
+            {"topic_name":"topic_11", "msg_type":"stamped4_int32"},
+            {"topic_name":"topic_4", "msg_type":"stamped_int64"},
+            {"topic_name":"topic_6", "msg_type":"stamped3_float32"}
+          ],
+        "publishers": [
+            {"topic_name": "topic_13", "msg_type": "stamped4_int32", "period_ms": 100, "msg_pass_by":"shared_ptr"}
+          ]
+      },
+
+      {
+        "node_name": "node_10",
+        "subscribers":[
+            {"topic_name":"topic_13", "msg_type":"stamped4_int32"}
+          ]
+      }
+    ]
+}
